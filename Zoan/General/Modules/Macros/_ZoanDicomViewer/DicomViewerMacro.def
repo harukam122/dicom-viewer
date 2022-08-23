@@ -1,0 +1,20 @@
+//----------------------------------------------------------------------------------
+//! DicomViewerMacro module definition
+/*!
+// \file    DicomViewerMacro.def
+// \author  Haruka Masamura
+// \date    2022-06-22
+*/
+//----------------------------------------------------------------------------------
+
+
+MacroModule DicomViewerMacro {
+  genre              = "View3D"
+  author             = "Haruka Masamura"
+  comment            = "Builds a 3D Dicom Viewer"
+  keywords           = ""
+  seeAlso            = ""
+  exampleNetwork     = "$(LOCAL)/networks/DicomViewerMacroExample.mlab"
+   
+  externalDefinition = "$(LOCAL)/DicomViewerMacro.script"
+}

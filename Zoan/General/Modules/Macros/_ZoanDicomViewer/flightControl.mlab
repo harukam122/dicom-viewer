@@ -1,0 +1,262 @@
+// MDL v1 utf8
+mevislabVersion = 3.5.0.2011
+network  {
+  watchlist = ""
+}
+module SoGroup {
+  internal  {
+    frame = "185 457 128 64"
+    moduleGroupName = ""
+  }
+  fields  {
+    instanceName = cameraGroup
+  }
+}
+module SoPerspectiveCamera {
+  internal  {
+    frame = "245 813 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "104 393 446 248"
+        sizeHint = "406 248"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoPerspectiveCamera
+    viewportMapping = ADJUST_CAMERA
+    position = "256.483795166016 14.2911386489868 -215.916885375977"
+    orientation = "-0.679681897163391 -0.0384428575634956 -0.73249888420105 3.93208861351013"
+    aspectRatio = 1
+    nearDistance = 102.03352
+    farDistance = 307.20343
+    focalDistance = 290.26959
+    heightAngle = 0.78539819
+  }
+}
+module SoKeyGrabber {
+  internal  {
+    frame = "173 618 144 72"
+    moduleGroupName = ""
+    showNetworkPanel = true
+  }
+  fields  {
+    instanceName = SoKeyGrabber
+    on = TRUE
+    key0 = ANY
+    key1 = ANY
+    key2 = ANY
+    key3 = ANY
+    key4 = ANY
+  }
+}
+module SoInteractionMapping {
+  internal  {
+    frame = "5 618 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "827 488 359 329"
+        sizeHint = "266 284"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoInteractionMapping
+    overridePointingActions = "SoCameraInteraction.RotateCamera:
+SoCameraInteraction.PanCamera:
+SoCameraInteraction.SeekToPoint:"
+    overrideCommandActions = ""
+    overrideOffsetActions = SoCameraInteraction.ZoomCamera:
+    ignoreOtherPointingActions = FALSE
+    ignoreOtherCommandActions = FALSE
+    ignoreOtherOffsetActions = FALSE
+  }
+}
+module SoCameraViewAll {
+  internal  {
+    frame = "417 469 128 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "874 583 172 94"
+        sizeHint = "172 94"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoCameraViewAll
+    viewportWidth = 256
+    viewportHeight = 256
+  }
+}
+module GenericPointingAction {
+  internal  {
+    frame = "69 741 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "666 488 503 345"
+        sizeHint = "503 345"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GenericPointingAction
+    enabled = TRUE
+    providerID = Flight
+    actionID = rotate
+    userName = ""
+    description = ""
+    iconFile = ""
+    button1 = PRESSED
+    button2 = RELEASED
+    button3 = RELEASED
+    shift = RELEASED
+    ctrl = RELEASED
+    alt = RELEASED
+    offsetX = -271.5
+    offsetY = -345.5
+    sensitivityX = 100
+    sensitivityY = 100
+    minX = 0
+    maxX = 1
+    minY = 0
+    maxY = 1
+    clampToMinX = FALSE
+    clampToMaxX = FALSE
+    clampToMinY = FALSE
+    clampToMaxY = FALSE
+    positionSensitive = FALSE
+    sensitiveAtCurrentPosition = TRUE
+    numberOfModes = 1
+    cursorShape = UNDEFINED_CURSOR
+    statusMessage = ""
+  }
+}
+module SoSwitch {
+  internal  {
+    frame = "349 613 136 72"
+    moduleGroupName = ""
+    showNetworkPanel = true
+  }
+  fields  {
+    instanceName = SoSwitch
+    whichChild = 1
+  }
+}
+module SoPerspectiveCamera {
+  internal  {
+    frame = "473 757 160 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "932 267 446 248"
+        sizeHint = "406 248"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = 30DegreeCamera
+    viewportMapping = ADJUST_CAMERA
+    position = "2.60338282585144 -0.076491080224514 -0.212073370814323"
+    orientation = "-0.721397638320923 -0.212863966822624 -0.658995032310486 3.56645011901855"
+    aspectRatio = 1
+    nearDistance = 1.6131258
+    farDistance = 3.6131258
+    focalDistance = 2.6131258
+    heightAngle = 0.78539819
+  }
+}
+module SoPerspectiveCamera {
+  internal  {
+    frame = "665 757 160 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "837 677 446 248"
+        sizeHint = "406 248"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = 70DegreeCamera
+    viewportMapping = ADJUST_CAMERA
+    position = "256.483795166016 14.2911386489868 -215.916885375977"
+    orientation = "-0.735427558422089 -0.416751503944397 -0.534288644790649 3.05405879020691"
+    aspectRatio = 1
+    nearDistance = 102.03352
+    farDistance = 307.20343
+    focalDistance = 290.26959
+    heightAngle = 0.78539819
+  }
+}
+module ComposeRotation {
+  internal  {
+    frame = "481 925 128 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "285 243 473 135"
+        sizeHint = "473 135"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ComposeRotation
+    rotation1 = "-0.679681914160517 -0.0384428585248543 -0.732498902518996 3.93208861351013"
+    invert1 = FALSE
+    rotation2 = "1 0 0 0.52"
+    invert2 = FALSE
+    invertResult = FALSE
+  }
+}
+module ComposeRotation {
+  internal  {
+    frame = "677 917 136 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "314 590 473 135"
+        sizeHint = "473 135"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ComposeRotation1
+    rotation1 = "-0.679681914160517 -0.0384428585248543 -0.732498902518996 3.93208861351013"
+    invert1 = FALSE
+    rotation2 = "1 0 0 1.22"
+    invert2 = FALSE
+    invertResult = FALSE
+  }
+}
+connections  {
+  cameraGroup.children = "SoInteractionMapping.self GenericPointingAction.output SoKeyGrabber.self SoSwitch.self"
+  SoCameraViewAll.inCamera = SoSwitch.self
+  SoSwitch.children = "SoPerspectiveCamera.self 30DegreeCamera.self 70DegreeCamera.self"
+  30DegreeCamera.position = SoPerspectiveCamera.position
+  30DegreeCamera.orientation = ComposeRotation.result
+  30DegreeCamera.nearDistance = SoPerspectiveCamera.nearDistance
+  30DegreeCamera.farDistance = SoPerspectiveCamera.farDistance
+  30DegreeCamera.focalDistance = SoPerspectiveCamera.focalDistance
+  30DegreeCamera.heightAngle = SoPerspectiveCamera.heightAngle
+  70DegreeCamera.position = SoPerspectiveCamera.position
+  70DegreeCamera.orientation = ComposeRotation1.result
+  70DegreeCamera.nearDistance = SoPerspectiveCamera.nearDistance
+  70DegreeCamera.farDistance = SoPerspectiveCamera.farDistance
+  70DegreeCamera.focalDistance = SoPerspectiveCamera.focalDistance
+  70DegreeCamera.heightAngle = SoPerspectiveCamera.heightAngle
+  ComposeRotation.rotation1 = SoPerspectiveCamera.orientation
+  ComposeRotation1.rotation1 = SoPerspectiveCamera.orientation
+}
+networkModel = ""

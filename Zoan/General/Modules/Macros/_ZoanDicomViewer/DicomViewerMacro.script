@@ -1,0 +1,179 @@
+// MDL v1 utf8
+//----------------------------------------------------------------------------------
+//! Macro module DicomViewerMacro
+/*!
+// \file    DicomViewerMacro.script
+// \author  Haruka Masamura
+// \date    2022-06-22
+//
+// Builds a 3D Dicom Viewer
+*/
+//----------------------------------------------------------------------------------
+
+Interface {
+  Inputs = ""
+  Outputs = ""
+  Parameters {
+    Field collisionThreshold { type = Double value = 10 editable = Yes } //the higher the less constrained the camera movement
+    Field cameraAngle { 
+      type = Enum
+      editable = False
+      items {
+        item degree0 { title = "0 Degrees"}
+        item degree30 { title = "30 Degrees"}
+        item degree70 { title = "70 Degrees"}
+      }
+    }
+  }
+}
+
+Commands {
+  initCommand = init
+  FieldListener collisionThreshold { command = collisionThresholdCommand } //listens to collisionThreshold field and calls command when updated
+  FieldListener cameraAngle { command = cameraAngleCommand }
+  
+  source = $(LOCAL)/DicomViewerMacro.py
+}
+
+Window {
+  title = "DICOM Viewer"
+  Horizontal {
+    Splitter {
+      direction = horizontal
+      
+      Vertical {  //left-most column 
+        Vertical {  //contains data loading and visualizer settings
+          h = 300
+          Box dataUpload {
+            title   = "Data Upload"
+            layout  = Vertical
+            expandY = false
+            Panel {
+              module  = LocalPath
+              expandY = No
+            }
+            Horizontal { //contains buttons
+              Button {
+                width   = 50
+                command = loadData
+                title   = "Load Data"
+                border  = Yes
+              }
+              Button {
+                width   = 50
+                command = clearData
+                title   = "Clear Data"
+                border  = Yes
+              }
+              Button {
+                width   = 50
+                command = initPosition
+                title   = "Reorient Camera"
+                border  = Yes
+              }
+            }
+          }
+          Box visualizerSettings {
+            title   = "Visualization Settings"
+            layout  = Vertical
+            expandY = false
+            
+            Grid {
+              //Collision Threshold
+              FieldLabel collisionThreshold { x = 1 y = 1 title = "Collision Threshold:" }
+ 
+              NumberEdit collisionThreshold {
+                x = 2
+                y = 1
+                step      = 1
+                stepstep  = 10
+                minLength = 5
+                editAlign = left
+                expandX   = False
+              }
+
+              ThumbWheel collisionThreshold {
+                x = 3
+                x2 = 5
+                y = 1
+                tracking    = true
+                wrapsAround = true
+                direction   = horizontal
+              }
+              
+              //Camera Angle
+              FieldLabel cameraAngle { x = 1 y = 2 title = "Camera Angle:" }
+              ComboBox cameraAngle { x = 2 y = 2 }
+            }
+          }
+        }
+        
+        Box cameraControls {
+          title   = "Camera Controls Guide"
+          layout  = Vertical
+          expandY = True
+          HyperText {
+            frameShape = HLine
+            text = "*<h3>Navigation</h3>
+                   <ul>
+                   <li><b>W</b>: forward
+                   <li><b>S</b>: backward
+                   <li><b>A</b>: left
+                   <li><b>D</b>: right
+                   <li><b>C</b>: up
+                   <li><b>SPACE</b>: down
+            　　　　　　</ul>
+                   
+                   <h3>Rotations</h3>
+                   <ul>
+                   <li><b>PERIOD</b>: clockwise
+                   <li><b>COMMA</b>: counter-clockwise 
+                   <li><b>UP</b>: upward
+                   <li><b>DOWN</b>: downward
+                   <li><b>LEFT</b>: leftward
+                   <li><b>RIGHT</b>: rightward
+            　　　　　　</ul>
+                   
+                   <h3>Angles</h3>
+                   <ul>                   
+                   <li><b>1</b>: 0 degree
+                   <li><b>2</b>: 30 degrees
+                   <li><b>3</b>: 70 degrees
+            　　　　　　</ul>*"
+          }
+        }
+      }
+      
+      Vertical{
+        Splitter{
+          direction = vertical
+          
+          Horizontal{
+            Splitter{
+              direction = horizontal
+            
+              Viewer EndoscopyView.self {
+                type    = SoRenderArea
+                pw      = 700 ph = 700
+                expandX = Yes
+                expandY = Yes
+                clone   = No
+              }
+
+              Viewer ExternalView.self {
+                type    = SoExaminerViewer
+                pw      = 700 ph = 700
+                expandX = Yes
+                expandY = Yes
+                clone   = No
+              }
+            }
+          }
+          Viewer SoRenderArea.self { //displays real-time location of SoPerspectiveCamera on 2D images
+            ph = 350
+          }  
+        }
+      }
+    }
+  }
+}

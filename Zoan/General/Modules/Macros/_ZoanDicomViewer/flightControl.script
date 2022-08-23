@@ -1,0 +1,26 @@
+Interface  {
+  Inputs {
+    Field inScene { internalName = SoCameraViewAll.inScene }
+    Field inImage { type = Image }
+  }
+  Outputs {
+    Field self { internalName = cameraGroup.self }
+  }
+  Parameters {
+    Field moveSpeed   { type = Double value = 1 }
+    Field turnSpeed   { type = Double value = 1 }
+    
+    Field cameraAngle { internalName = SoSwitch.whichChild }
+    Field position    { internalName = SoPerspectiveCamera.position }
+    Field orientation { internalName = SoPerspectiveCamera.orientation }
+  }
+}
+
+Commands {
+  source = $(LOCAL)/flightControl.py
+  initCommand = init
+  FieldListener SoKeyGrabber.keyPressed       { command = onKeyPressed  }
+  FieldListener GenericPointingAction.offsetY { command = onHeadNod   }
+  FieldListener GenericPointingAction.offsetX { command = onHeadTurn  }
+  FieldListener inImage                       { command = onUpdateImage }
+}
