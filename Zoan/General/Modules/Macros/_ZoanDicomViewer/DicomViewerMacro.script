@@ -142,6 +142,13 @@ Window {
             　　　　　　</ul>*"
           }
         }
+        
+        //Viewer RegionSelector.self {
+        //  pw      = 300 ph = 300
+        //  expandX = Yes
+        //  expandY = Yes
+        //  clone   = No
+        //}
       }
       
       Vertical{
