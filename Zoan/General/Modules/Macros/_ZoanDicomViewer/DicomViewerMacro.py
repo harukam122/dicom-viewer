@@ -18,8 +18,6 @@ def init():
 # button action for loading data
 def loadData():
   ctx.field("DirectDicomImport.dplImport").touch()
-  ctx.field("GVRVolumeSave.save").touch()
-  ctx.field("GVRVolumeLoad.filename").value = ctx.field("GVRVolumeSave.filename").value
   initPosition()
 
 # reorients the camera to initial position/orientation
@@ -31,7 +29,6 @@ def initPosition():
 def clearData():
   ctx.field("LocalPath.localName").value = ""
   ctx.field("DirectDicomImport.dplImport").touch()
-  ctx.field("GVRVolumeLoad.filename").value = ""
   
 # called whenever the collisionThreshold field is updated
 def collisionThresholdCommand(field):
